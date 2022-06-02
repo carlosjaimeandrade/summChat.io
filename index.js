@@ -1,11 +1,9 @@
 //lib
-const express = require("express");
-const app = new express();
 const session = require('express-session');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
-const server = require("http").createServer(app);
-const io = require('socket.io')(server);
+const { server, app,express } = require('./help/http')
+const wss =  require('./help/wss')
 
 //model
 const User = require('./models/User')
@@ -29,8 +27,8 @@ const userSession = session({
     saveUninitialized: true,
     name: "key"
 })
-app.use(userSession
-    )
+app.use(userSession)
+
 app.use(cookieParser());
 
 //configurando msg flash
@@ -48,33 +46,8 @@ app.use("/", HomeRoutes)
 app.use("/", ChatRoutes)
 app.use("/", ApiRoutes)
 
-const wrap = middleware => (socket, next) => middleware(socket.request, {}, next);
-
-io.use(wrap(userSession));
-
-io.use((socket, next) => {
-    const session = socket.request.session;
-    socket.join(session.codigo)  
-    console.log(socket.rooms)
-    next()
-  });
-
-io.on('connection', (socket) => {
-   
-    console.log(`socket rodando id: ${socket.id} `)
-   
-    socket.on('message', data => {
-        socket.to(data.codigo).emit("newMsg", data.msg)
-    })
-
-    socket.on('typing', data=>{
-        socket.to(data.codigo).emit("typing", "digitando....")
-    })
-
-
-})
-
-
+//websocket.io
+wss(userSession)
 
 //404
 app.get("*", (req, res) => {
