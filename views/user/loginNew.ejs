@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="shortcut icon" href="/img/fms.ico" type="image/x-icon" />
+    <title>Login</title>
+</head>
+
+<body>
+
+    <form method="post" action="">
+
+        <div class="login-container">
+            <div class="login-banner">
+                <video autoplay muted loop>
+                    <source src="/video/Earth - 1236.mp4" type="video/mp4">
+                </video>
+                <h1>Aumente <br>sua<br> presença <br>digital</h1>
+            </div>
+            <div class="login-entry">
+                <div class="login-content">
+                    <div class="login-logo">
+                        <img src="/img/logo_site.png" alt="">
+                    </div>
+                    <div class="login-input">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <input required placeholder="email" name="email" type="email">
+                    </div>
+                    <div class="login-input">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input required placeholder="Nome" name="name" type="text">
+                    </div>
+                    <div class="login-input">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <input required placeholder="Telefone" name="telephone" type="text">
+                    </div>
+                    <div class="login-input">
+                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                        <input required name="password" type="password" placeholder="Password">
+                        <i view-password class="fa fa-eye"></i>
+                    </div>
+
+                    <div class="login-access">
+                        <button>Cadastrar</button>
+                    </div>
+                    <% if(message !=undefined) {%>
+                        <div class="alert alert-<%= type %>" role="alert">
+                            <%= message %>
+                        </div>
+                        <% } %>
+
+                            <div class="login-create">
+                                <a href="/login"><span>Voltar para o login</span></a>
+                            </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+</body>
+
+</html>
+
+<script src="/js/login.js"></script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="shortcut icon" href="/img/fms.ico" type="image/x-icon" />
+    <title>Login</title>
+</head>
+
+<body>
+
+    <form method="post" action="" enctype="multipart/form">
+
+        <div class="login-container">
+
+            <div class="login-entry">
+                <div class="login-content">
+                    <div class="login-logo">
+                        <img src="/img/logo_site.png" alt="">
+                    </div>
+                    <div class="login-input">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <input name="email" type="email" placeholder="E-mail">
+                    </div>
+                    <div class="login-input">
+                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                        <input name="password" type="password" placeholder="Password">
+                        <i view-password class="fa fa-eye"></i>
+                    </div>
+
+                    <div class="login-access">
+                        <button>Acessar</button>
+                    </div>
+                    <% if(message !=undefined) {%>
+                        <div class="alert alert-<%= type %>" role="alert">
+                            <%= message %>
+                        </div>
+                        <% } %>
+                            <div class="login-create">
+                                <a href="/login/new"><span>Não possui cadastro?</span> clique aqui e crie sua conta agora</a>
+                            </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </form>
+
+
+</body>
+
+</html>
+
+<script src="/js/login.js"></script>

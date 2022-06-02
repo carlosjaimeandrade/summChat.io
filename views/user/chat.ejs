@@ -1,0 +1,33 @@
+<%- include('../templates/user/header.ejs') %>
+
+
+<main class="main">
+    
+    <div class="container-summons">
+        <div class="content-summons">
+            <%- include('../templates/user/aside.ejs') %>
+            <div class="chat-container">
+                <div class="chat-content">
+                    <div data-select="<%= name %>" class="name-user">
+                        <h5><%= name %></h5>
+                    </div>
+                    <div class="chat">
+                        <% msgs.forEach(msg=>{ %>
+                            <div <%= msg.userId == id ? "class=chat-right" : "class=chat-left" %> ><span><%= msg.msg %></span></div>
+                        <% }) %>
+                    </div>
+                    <div class="chat-send">
+                        <textarea chat-msg ></textarea>
+                        <button id="<%= from.codigo %>" onclick="sendMsg(event)" >Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script src="/js/chat.js"></script>
+<script src="/js/news.js"></script>
+<script src="/js/activeUser.js"></script>
+

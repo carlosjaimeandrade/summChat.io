@@ -1,0 +1,131 @@
+    .header {
+        position: fixed;
+        width: 100%;
+        background-color: #fff;
+        border-bottom: 1px solid rgba(187, 187, 187, 0.445);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 999;
+    }
+    
+    .header-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    .dropDown-content:hover .dropdownOption {
+        display: block;
+    }
+    
+    .logo {
+        height: 60px;
+        display: flex;
+    }
+    
+    .logo img {
+        padding: 10px;
+    }
+    
+    .dropdown {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        padding: 0px 5px;
+        transition: 0.4s;
+    }
+    
+
+    .dropdown span {
+        font-size: 12px;
+        color: black;
+    }
+    
+    .dropdown i {
+        color: black;
+    }
+    
+    .dropdown img {
+        border-radius: 50%;
+        height: 40px;
+        margin-left: 5px;
+    }
+    
+    .fa-cogs {
+        display: none;
+    }
+    
+    .dropdownOption {
+        position: absolute;
+        right: 0;
+        top: 50px;
+        background-color: #edf1f2;
+        width: 190px;
+        border: 1px solid rgba(51, 51, 51, 0.316);
+        display: none;
+    }
+    
+    .dropdownOption li {
+        padding: 16px;
+        font-size: 12px;
+    }
+    
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0px;
+    }
+    
+    .border-memu {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.186);
+        background-color: rgba(38, 37, 37, 0.118);
+    }
+    
+    .hover-dropdown:hover {
+        background-color: rgba(51, 51, 51, 0.316);
+        cursor: pointer;
+    }
+    
+    .fa-bars {
+        font-size: 30px;
+        color: #fff;
+        margin-right: 20px;
+        cursor: pointer;
+        display: none;
+    }
+    
+    .fa-cog {
+        font-size: 30px;
+        color: #fff;
+        margin-right: 20px;
+        cursor: pointer;
+        display: none;
+    }
+    
+    .fa-dedent {
+        color: #fff;
+        font-size: 20px;
+    }
+    
+    .fa-dedent:hover {
+        color: #f0f0f0;
+    }
+    
+    .logout {
+        color: black;
+    }
+    
+    @media(max-width:768px) {
+        .fa-bars {
+            display: block;
+        }
+        .fa-cog {
+            display: block;
+        }
+        .dropdown {
+            display: None;
+        }
+    }

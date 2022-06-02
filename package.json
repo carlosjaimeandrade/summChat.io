@@ -1,0 +1,33 @@
+{
+    "name": "fmsweb",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon index.js",
+        "start": "node index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-preset-env": "^1.6.1",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.1",
+        "connect-flash": "^0.1.1",
+        "cookie-parser": "^1.4.6",
+        "ejs": "^3.1.6",
+        "express": "^4.17.2",
+        "express-session": "^1.17.2",
+        "forever": "^4.0.3",
+        "md5": "^2.3.0",
+        "mercadopago": "^1.5.12",
+        "mysql2": "^2.3.3",
+        "nodemailer": "^6.7.2",
+        "puppeteer": "^5.5.0",
+        "save": "^2.4.0",
+        "sequelize": "^6.17.0",
+        "slugify": "^1.6.5"
+    }
+}
