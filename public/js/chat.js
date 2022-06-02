@@ -48,7 +48,7 @@ socket.on("typing", data=>{
     typing.innerHTML = `<i class="fa fa-keyboard-o" aria-hidden="true"></i> Digitando...` 
     time = setTimeout(()=>{
         typing.innerHTML = "" 
-    },1000)  
+    },300)  
     
 })
 
