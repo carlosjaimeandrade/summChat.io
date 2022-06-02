@@ -8,6 +8,7 @@ const wss = (userSession) => {
     io.use((socket, next) => {
         const session = socket.request.session;
         socket.join(session.codigo)
+        socket.join(session.user_id)
         console.log(socket.rooms)
         next()
     });

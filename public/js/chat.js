@@ -33,7 +33,6 @@ function typing() {
     })
 }
 
-
 socket.on("newMsg", msg => {
     const chat = document.querySelector('.chat')
     chat.insertAdjacentHTML('afterbegin', `<div class="chat-left"><span>${msg}</span><div/>`)
@@ -45,7 +44,7 @@ let time
 socket.on("typing", data=>{
     clearTimeout(time);  
     const typing = document.querySelector('.typing')
-    typing.innerHTML = `<i class="fa fa-keyboard-o" aria-hidden="true"></i> Digitando...` 
+    typing.innerHTML = `Digitando...` 
     time = setTimeout(()=>{
         typing.innerHTML = "" 
     },300)  
