@@ -26,10 +26,12 @@ const loginCheck = async(req, res) => {
         const correct = bcrypt.compareSync(password, user_sucess.password)
         if (correct) {
             req.session.user_id = user_sucess.id
+            req.session.name = user_sucess.name
             req.session.remoteAddress = req.connection.remoteAddress
 
             //apenas em desenvolvimento
             res.cookie("user_id", user_sucess.id, { maxAge: 99960000 });
+            res.cookie("name", user_sucess.name, { maxAge: 99960000 });
 
             res.redirect('user/assinatura')
         } else {

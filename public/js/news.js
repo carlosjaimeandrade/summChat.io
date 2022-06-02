@@ -1,4 +1,4 @@
-function news(){
+/* function news(){
     const users = document.querySelectorAll('[data-user]')
     users.forEach(async user=>{
         const name = user.getAttribute('data-user')
@@ -16,4 +16,4 @@ function news(){
 
 setInterval(()=>{
     news()
-},1000)
+},1000) */

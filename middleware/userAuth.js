@@ -4,6 +4,7 @@ function userAuth(req, res, next) {
 
     if(req.cookies.user_id){
         req.session.user_id = req.cookies.user_id
+        req.session.name= req.cookies.name
         next()
         return
     }

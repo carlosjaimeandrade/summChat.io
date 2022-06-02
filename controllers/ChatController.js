@@ -12,6 +12,8 @@ const chat = async (req, res) => {
 
     const codigo = id > req.session.user_id ? `${id}${req.session.user_id}` : `${req.session.user_id}${id}`
 
+    req.session.codigo = codigo
+
     let to = await Chat.findOne({ where: { userId : id, codigo: codigo }})
 
     let from = await Chat.findOne({ where: { userId : req.session.user_id, codigo: codigo  }})
@@ -33,7 +35,8 @@ const chat = async (req, res) => {
         from: from,
         msgs : msgs,
         id: req.session.user_id,
-        name
+        name,
+        userName : req.session.name
     })
 }
 

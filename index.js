@@ -1,18 +1,11 @@
 //lib
 const express = require("express");
 const app = new express();
-const bodyParser = require("body-parser");
 const session = require('express-session');
-const MercadoPago = require('mercadopago');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
-
-
-//configurando mercado pago
-MercadoPago.configure({
-    sandbox: true, //modo de s desenvolvimento
-    access_token: 'TEST-6594637210271734-032312-aa00cfef0f5da829baa85406a4988eab-215259488'
-});
+const server = require("http").createServer(app);
+const io = require('socket.io')(server);
 
 //model
 const User = require('./models/User')
@@ -30,15 +23,19 @@ app.use(express.json());
 app.use(express.static('public'))
 
 //configurando session
-app.use(session({
+const userSession = session({
     secret: '6594637210271734-032312-aa00cfef0f5',
     resave: true,
-    saveUninitialized: true
-}))
+    saveUninitialized: true,
+    name: "key"
+})
+app.use(userSession
+    )
 app.use(cookieParser());
 
 //configurando msg flash
 app.use(flash());
+
 
 //rotas
 const UserRoutes = require('./routes/user')
@@ -51,12 +48,34 @@ app.use("/", HomeRoutes)
 app.use("/", ChatRoutes)
 app.use("/", ApiRoutes)
 
+const wrap = middleware => (socket, next) => middleware(socket.request, {}, next);
+
+io.use(wrap(userSession));
+
+io.use((socket, next) => {
+    const session = socket.request.session;
+    socket.join(session.codigo)  
+    console.log(socket.rooms)
+    next()
+  });
+
+io.on('connection', (socket) => {
+    console.log(`socket rodando id: ${socket.id} `)
+
+    socket.on('message', data => {
+        socket.to(data.codigo).emit("newMsg", data.msg)
+    })
+
+})
+
+
+
 //404
 app.get("*", (req, res) => {
     res.redirect("/home")
 })
 
 // rodando servidor
-app.listen(3333, () => {
+server.listen(3333, () => {
     console.log('servidor rodando')
 })
