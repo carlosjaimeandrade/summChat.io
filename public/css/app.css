@@ -147,6 +147,7 @@ textarea:focus, input:focus, select:focus, button:focus {
     justify-content: center;
     padding: 18px;
     border-bottom: 1px solid rgba(187, 187, 187, 0.445);
+    position: relative;
 }
 .name-user h5{
     margin: 0px;
@@ -199,4 +200,12 @@ textarea:focus, input:focus, select:focus, button:focus {
 
 .chat-info i{
     margin: 10px;
+}
+
+.typing{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
 }

@@ -60,11 +60,17 @@ io.use((socket, next) => {
   });
 
 io.on('connection', (socket) => {
+   
     console.log(`socket rodando id: ${socket.id} `)
-
+   
     socket.on('message', data => {
         socket.to(data.codigo).emit("newMsg", data.msg)
     })
+
+    socket.on('typing', data=>{
+        socket.to(data.codigo).emit("typing", "digitando....")
+    })
+
 
 })
 

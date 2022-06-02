@@ -10,6 +10,7 @@
                 <div class="chat-content">
                     <div data-select="<%= name %>" class="name-user">
                         <h5><%= name %></h5>
+                        <div class="typing"></div>
                     </div>
                     <div class="chat">
                         <% msgs.forEach(msg=>{ %>
@@ -17,17 +18,15 @@
                         <% }) %>
                     </div>
                     <div class="chat-send">
-                        <textarea chat-msg ></textarea>
-                        <button id="<%= from.codigo %>" onclick="sendMsg(event)" >Enviar</button>
+                        <textarea chat-msg oninput="typing()" ></textarea>
+                        <button chat-codigo id="<%= from.codigo %>" onclick="sendMsg(event)" >Enviar</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </main>
 
 <script src="/js/chat.js"></script>
-<script src="/js/news.js"></script>
 <script src="/js/activeUser.js"></script>
 
