@@ -14,7 +14,14 @@
                     </div>
                     <div class="chat">
                         <% msgs.forEach(msg=>{ %>
-                            <div <%= msg.userId == id ? "class=chat-right" : "class=chat-left" %> ><span><%= msg.msg %></span></div>
+                            <div <%= msg.userId == id ? "class=chat-right" : "class=chat-left" %> >
+                                <span class="msg-area">
+                                    <%= msg.msg %>
+                                    <span class="msg-hr">
+                                        <%= msg.createdAt.toLocaleString() %>
+                                    </span> 
+                                </span>
+                            </div>
                         <% }) %>
                     </div>
                     <div class="chat-send">

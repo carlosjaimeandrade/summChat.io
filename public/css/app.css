@@ -223,3 +223,22 @@ textarea:focus, input:focus, select:focus, button:focus {
     text-align: center;
     font-size: 10px;
 }
+
+.msg-chat{
+    flex-direction: column;
+}
+.msg-hr{
+    display: none;
+    transition:1s
+    
+}
+
+.msg-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.msg-area:hover .msg-hr {
+    display: block;
+}
