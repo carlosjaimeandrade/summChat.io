@@ -38,12 +38,26 @@ textarea:focus, input:focus, select:focus, button:focus {
 
 
 .user-img-chat{
- 
     display: flex;
     align-items: center;
 }
 .user-content{
     position: relative;
+    display: flex;
+    align-items: center;
+}
+.user-status{
+    display: flex;
+    flex-direction: column;
+}
+.status{
+    font-size: 12px
+}
+.offline{
+    color: rgb(133, 133, 133)
+}
+.online{
+    color: rgb(45, 194, 0)
 }
 .news{
     position: absolute;
@@ -54,7 +68,7 @@ textarea:focus, input:focus, select:focus, button:focus {
     margin-right: 5px
 }
 
-.user-img-chat > span{
+.user-img-chat > div{
     margin: 10px;
 }
 

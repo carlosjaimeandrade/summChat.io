@@ -1,5 +1,3 @@
-const socket = io();
-
 async function sendMsg(event) {
     let chat_msg = document.querySelector('[chat-msg]')
     const codigo = event.target.id
@@ -50,5 +48,4 @@ socket.on("typing", data=>{
     },300)  
     
 })
-
 

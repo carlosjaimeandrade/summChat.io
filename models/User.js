@@ -17,10 +17,14 @@ const User = connection.define('user', {
     password: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    status:{
+        type: Sequelize.STRING,
+        defaultValue: "offline"
     }
 })
 
 
-/* User.sync({ force: true })
- */
+/* User.sync({ force: true }) */
+
 module.exports = User;

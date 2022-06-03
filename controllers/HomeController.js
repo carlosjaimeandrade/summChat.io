@@ -9,7 +9,6 @@ const userHome = async (req, res) => {
         userName : req.session.name
     })
 
-
 }
 
 module.exports = {

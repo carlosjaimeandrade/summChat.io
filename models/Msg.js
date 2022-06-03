@@ -19,6 +19,6 @@ Chat.hasMany(Msg)
 User.hasMany(Msg)
 
 
-/* Msg.sync({ force: true }) */
-
+/* Msg.sync({ force: true })
+ */
 module.exports = Msg;

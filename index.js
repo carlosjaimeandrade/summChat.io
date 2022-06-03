@@ -34,7 +34,6 @@ app.use(cookieParser());
 //configurando msg flash
 app.use(flash());
 
-
 //rotas
 const UserRoutes = require('./routes/user')
 const HomeRoutes = require('./routes/home')
