@@ -62,5 +62,6 @@ const newMsg = async(req, res)=>{
 module.exports = {
     create,
     msgs,
-    newMsg
+    newMsg,
+
 }

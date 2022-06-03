@@ -1,5 +1,8 @@
 const { io } = require('./http')
+const {Op} = require('sequelize')
 const User = require('../models/User')
+const Msg = require('../models/Msg')
+const Chat = require('../models/Chat')
 
 const wss = (userSession) => {
     const wrap = middleware => (socket, next) => middleware(socket.request, {}, next);
@@ -20,9 +23,17 @@ const wss = (userSession) => {
         console.log(`socket rodando id: ${socket.id} `)
 
         socket.on('message', data => {
-            socket.to(data.codigo).emit("newMsg", data.msg)
+            socket.to(data.codigo).emit("newMsg", data)
         })
 
+        socket.on('viewMsg', async data=>{
+            const chats = await Chat.findAll({ where: {codigo: data.codigo}})
+            chats.forEach(async chat=>{
+                await Msg.update({view: 1},{ where: { chatId: chat.id, userId : {[Op.ne]:  socket.request.session.user_id }}})
+            })
+            socket.to(data.codigo).emit("viewMsg", data)
+        })
+    
         socket.on('typing', data => {
             socket.to(data.codigo).emit("typing", "digitando....")
         })

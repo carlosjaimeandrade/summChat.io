@@ -242,3 +242,14 @@ textarea:focus, input:focus, select:focus, button:focus {
 .msg-area:hover .msg-hr {
     display: block;
 }
+
+.view{
+    display: flex;
+    height: 100%;
+    align-items: end;
+    margin-right:5px;
+}
+
+.view-ok{
+    color: rgb(45, 194, 0)
+}
