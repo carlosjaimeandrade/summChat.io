@@ -63,5 +63,4 @@ module.exports = {
     create,
     msgs,
     newMsg,
-
 }

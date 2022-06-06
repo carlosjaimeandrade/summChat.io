@@ -32,6 +32,7 @@ const wss = (userSession) => {
                 await Msg.update({view: 1},{ where: { chatId: chat.id, userId : {[Op.ne]:  socket.request.session.user_id }}})
             })
             socket.to(data.codigo).emit("viewMsg", data)
+            socket.emit("newsMsg", "newsMsg")
         })
     
         socket.on('typing', data => {

@@ -48,8 +48,7 @@ function typing() {
 }
 
 socket.on("newMsg", data => {
-  
-    insertMsg(data.msg,"left", false)
+     insertMsg(data.msg,"left", false)
 
     socket.emit("viewMsg", data)
 })
@@ -72,9 +71,13 @@ socket.on("viewMsg", async data=>{
         view.classList.add('fa-check-circle')
         view.classList.add('view-ok')
     })
+})
 
+socket.on("newsMsg",()=>{
+    news()
 })
 
 const codigo = document.querySelector("[chat-codigo]").id
 socket.emit("viewMsg",{ codigo:codigo})
+
 
